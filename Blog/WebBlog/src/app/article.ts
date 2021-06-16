@@ -33,9 +33,10 @@ export class Block{
 export class Article{
     name: string;
     tags: string[];
+    author: string;
     blocks: Block[];
   
-    constructor(article_name: string, article_tags: string[], inner_blocks: Block[]){
+    constructor(article_name: string, article_tags: string[], author_name: string, inner_blocks: Block[]){
   
       if(article_name.trim() != ""){
         this.name = article_name;
@@ -46,6 +47,11 @@ export class Article{
         this.tags = article_tags;
       }
       else throw "Error! Exeption in Artical class constructor. You must include at least one tag";
+
+      if(author_name.trim() != ""){
+        this.author = author_name;
+      }
+      else throw "Error! Exeption in Artical class constructor. You must include author name";
   
       if(inner_blocks.length > 1){
         this.blocks = inner_blocks;

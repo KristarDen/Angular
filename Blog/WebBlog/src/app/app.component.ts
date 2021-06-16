@@ -7,6 +7,18 @@ import {Block, Article} from './article';
   selector: 'app-root',
   template: `
   <h1>{{article.name}}</h1>
+
+  <div class="Tags">
+    <div class="tag">
+      автор : {{article.author}}
+    </div>
+
+    <div class="tag" *ngFor="let item of article.tags; first as isFirst">
+      #{{item}}
+      <div *ngIf="isFirst">tags: #{{item}}</div>
+    </div>
+  </div>
+
   <div class="articlepage">
     <div *ngFor="let item of article.blocks">
       <div  [ngSwitch]="item.type">
@@ -24,7 +36,7 @@ import {Block, Article} from './article';
 })
 export class AppComponent {
   title = 'WebBlog';
-  article = new Article("Родословная американского танто",["knives","history"],
+  article = new Article("Родословная американского танто",["knives","history"],"Denis",
   [new Block(0,"Американский танто окружен огромным числом домыслов, легенд и попросту недомолвок. Во многом, это, конечно же, своего рода часть его маркетингового образа, упорно создаваемого американской ножевой индустрией. Но, дыма без огня всё-таки не бывает. И американский танто до сих пор остаётся крайне интересной темой для разговора. Попробуем и мы разобраться что к чему в истории, конструкции и назначении этого замечательного ножа."),
    new Block(1,"assets/tanto1.jpg"),
    new Block(0,`Создание авторских ножей в США имеет чрезвычайно глубокие корни. Мастера и просто искатели, постоянно выдумывающие, изготавливающие и выставляющие на продажу что-то своё существуют там очень давно. Достаточно вспомнить Джона Вашингтона Сирса с его нессмуком или Ризона и Джеймса Боуи с их ножом-«однофамильцем».

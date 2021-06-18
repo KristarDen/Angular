@@ -6,19 +6,26 @@ import {Block, Article} from './article';
 @Component({
   selector: 'app-root',
   template: `
+  <body>
   <h1>{{article.name}}</h1>
 
-  <div class="Tags">
-    <div class="tag">
+  <div class="ArticleInfo">
+
+    <div class="author">
       автор : {{article.author}}
     </div>
 
-    <div class="tag" *ngFor="let item of article.tags; first as isFirst">
-      #{{item}}
-      <div *ngIf="isFirst">tags: #{{item}}</div>
+    <div class="Tags">
+      <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
+        <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
+        <div *ngIf="i != 0" class="tag">#{{item}}</div>
+      </ng-template>
     </div>
   </div>
 
+  <div class="Tags">
+  {{ Data | date }}
+  </div>
   <div class="articlepage">
     <div *ngFor="let item of article.blocks">
       <div  [ngSwitch]="item.type">
@@ -31,11 +38,13 @@ import {Block, Article} from './article';
       </div>
     </div>
   </div>
+  </body>
 `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'WebBlog';
+  Data = new Date(Date.now());
   article = new Article("Родословная американского танто",["knives","history"],"Denis",
   [new Block(0,"Американский танто окружен огромным числом домыслов, легенд и попросту недомолвок. Во многом, это, конечно же, своего рода часть его маркетингового образа, упорно создаваемого американской ножевой индустрией. Но, дыма без огня всё-таки не бывает. И американский танто до сих пор остаётся крайне интересной темой для разговора. Попробуем и мы разобраться что к чему в истории, конструкции и назначении этого замечательного ножа."),
    new Block(1,"assets/tanto1.jpg"),

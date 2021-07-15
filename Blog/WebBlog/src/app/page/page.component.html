@@ -1,0 +1,28 @@
+
+    <h1>{{article.name}}</h1>
+    <div class="ArticleInfo">
+      <div class="author">
+        автор : {{article.author}}
+      </div>
+      <div class="Tags">
+        <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
+          <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
+          <div *ngIf="i != 0" class="tag">#{{item}}</div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="Tags">
+    {{ Data | date }}
+    </div>
+    <div class="articlepage">
+      <div *ngFor="let item of article.blocks">
+        <div  [ngSwitch]="item.type">
+          <article *ngSwitchCase="0">
+            {{item.text}}
+          </article>
+          <h2 *ngSwitchCase="3">{{item.text}}</h2>
+          <img *ngSwitchCase="1" src="{{item.text}}"/>
+          <video *ngSwitchCase="2" controls src="{{item.text}}"></video>
+        </div>
+      </div>
+    </div>

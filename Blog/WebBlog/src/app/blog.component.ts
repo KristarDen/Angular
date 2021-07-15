@@ -1,47 +1,51 @@
 import { isNgTemplate } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import {Block, Article} from './article';
-
+import {Routes, RouterModule} from '@angular/router';
+import { HttpClient, HttpClientModule}   from '@angular/common/http';
+import { OnInit } from '@angular/core';
+import { HttpService } from './http.service'
 
 @Component({
-  selector: 'app-root',
+  selector: 'blog-page',
   template: `
-  <body>
-  <h1>{{article.name}}</h1>
-
-  <div class="ArticleInfo">
-
-    <div class="author">
-      автор : {{article.author}}
-    </div>
-
-    <div class="Tags">
-      <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
-        <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
-        <div *ngIf="i != 0" class="tag">#{{item}}</div>
+  
+  <div class="container" *ngFor="let article of articles">
+    <h1>{{article.name}}</h1>
+    <div class="ArticleInfo">
+      <div class="author">
+        автор : {{article.author}}
+      </div>
+      <div class="Tags">
+        <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
+          <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
+          <div *ngIf="i != 0" class="tag">#{{item}}</div>
       </ng-template>
     </div>
+    <a class="Read" [routerLink]="['page', article.id]"> Читать </a>
   </div>
-
-  <div class="Tags">
-  {{ Data | date }}
-  </div>
-  <div class="articlepage">
-    <div *ngFor="let item of article.blocks">
-      <div  [ngSwitch]="item.type">
-        <article *ngSwitchCase="0">
-          {{item.text}}
-        </article>
-        <h2 *ngSwitchCase="3">{{item.text}}</h2>
-        <img *ngSwitchCase="1" src="{{item.text}}"/>
-        <video *ngSwitchCase="2" controls src="{{item.text}}"></video>
-      </div>
-    </div>
-  </div>
-  </body>
-`,
+  
+  
+  `,
   styleUrls: ['./app.component.css']
 })
+
+export class AppComponent implements OnInit 
+{
+  articles: Article [] = [];
+  title: string = "";
+  Data: Date = new Date(Date.now());
+
+  constructor(private http: HttpClient){}
+
+  ngOnInit(){
+          
+    this.http.get('assets/articles.json').subscribe((data:any) => this.articles = data["articleList"]);
+    console.log(this.articles);
+  }
+}
+
+/*
 export class AppComponent {
   title = 'WebBlog';
   Data = new Date(Date.now());
@@ -93,4 +97,5 @@ export class AppComponent {
    new Block(2,'assets/recon_tanto_test1.mp4')
   ]
   );
-}
+}*/
+

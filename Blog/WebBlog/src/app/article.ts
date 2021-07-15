@@ -31,13 +31,15 @@ export class Block{
   }
   
 export class Article{
+    id: number;
     name: string;
     tags: string[];
     author: string;
     blocks: Block[];
   
-    constructor(article_name: string, article_tags: string[], author_name: string, inner_blocks: Block[]){
+    constructor(Id: number,article_name: string, article_tags: string[], author_name: string, inner_blocks: Block[]){
   
+      this.id = Id;
       if(article_name.trim() != ""){
         this.name = article_name;
       }
@@ -61,3 +63,4 @@ export class Article{
     }
   
   }
+

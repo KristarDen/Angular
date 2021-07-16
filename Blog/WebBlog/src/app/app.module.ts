@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './blog.component';
+import { AppComponent } from './app.component';
+import { BlogComponent } from './blog.component';
 import { PageComponent } from './page/page.component';
 
 
@@ -12,7 +13,8 @@ import { PageComponent } from './page/page.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PageComponent
+    PageComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

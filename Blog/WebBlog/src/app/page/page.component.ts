@@ -23,11 +23,13 @@ export class PageComponent implements OnInit  {
   constructor(private activateRoute: ActivatedRoute, private router: Router,private http: HttpClient)
   {
     activateRoute.params.subscribe(params => this.id = params['id']);
-    this.article = this.articles[this.id-1];
+    
+    this.article = this.articles[1];
   }
 
   ngOnInit(){
     this.http.get('assets/articles.json').subscribe((data:any) => this.articles = data["articleList"]);
+    
     console.log(this.articles);
   }
 }

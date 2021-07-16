@@ -20,17 +20,16 @@ import { HttpService } from './http.service'
         <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
           <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
           <div *ngIf="i != 0" class="tag">#{{item}}</div>
-      </ng-template>
+        </ng-template>
     </div>
-    <a class="Read" [routerLink]="['page', article.id]"> Читать </a>
+    <div><a class="Read" [routerLink]="['page', article.id]" routerLinkActive='active'> Читать </a></div>
   </div>
-  
   
   `,
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit 
+export class BlogComponent implements OnInit 
 {
   articles: Article [] = [];
   title: string = "";

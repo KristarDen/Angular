@@ -1,5 +1,5 @@
 <ng-template class="container" ngFor let-article [ngForOf]="articles" let-j="index">
-  <div *ngIf="j == id">
+  <div *ngIf="j == id-1">
     <h1>{{article.name}}</h1>
     <div class="ArticleInfo">
       <div class="author">

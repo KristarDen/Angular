@@ -6,7 +6,7 @@ import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
   {path: "page/:id", component: PageComponent},
-  {path: "", component: AppComponent}
+  {path: "", component: BlogComponent}
 ];
 
 @NgModule({

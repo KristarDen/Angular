@@ -8,24 +8,7 @@ import { HttpService } from './http.service'
 
 @Component({
   selector: 'blog-page',
-  template: `
-  
-  <div class="container" *ngFor="let article of articles">
-    <h1>{{article.name}}</h1>
-    <div class="ArticleInfo">
-      <div class="author">
-        автор : {{article.author}}
-      </div>
-      <div class="Tags">
-        <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
-          <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
-          <div *ngIf="i != 0" class="tag">#{{item}}</div>
-        </ng-template>
-    </div>
-    <div><a class="Read" [routerLink]="['page', article.id]" routerLinkActive='active'> Читать </a></div>
-  </div>
-  
-  `,
+  templateUrl: './blog.component.html',
   styleUrls: ['./app.component.css']
 })
 

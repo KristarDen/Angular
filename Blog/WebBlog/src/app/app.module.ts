@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog.component';
 import { PageComponent } from './page/page.component';
+import { SearchbyidComponent } from './searchbyid/searchbyid.component';
 
 
 
@@ -14,7 +15,8 @@ import { PageComponent } from './page/page.component';
   declarations: [
     AppComponent,
     PageComponent,
-    BlogComponent
+    BlogComponent,
+    SearchbyidComponent
   ],
   imports: [
     BrowserModule,

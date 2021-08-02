@@ -3,7 +3,8 @@
     {
       "id": 1,
       "name": "Родословная американского танто",
-      "tags": ["knives", "history"],
+      "date": "2020-04-15T00:00:00Z",
+      "tags": ["knive", "history", "tanto"],
       "author": "Denis",
       "blocks": [
         {
@@ -41,6 +42,7 @@
     {
       "id": 2,
       "name": "Конструкция ножа",
+      "date": "2020-06-20T00:00:00Z",
       "tags": ["knive", "construction", "learn"],
       "author": "Denis",
       "blocks": [
@@ -112,6 +114,7 @@
     {
       "id": 3,
       "name": "Виды ножей",
+      "date": "2021-06-15T00:00:00Z",
       "tags": ["knive", "types", "learn"],
       "author": "Denis",
       "blocks": [

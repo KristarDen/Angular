@@ -1,0 +1,37 @@
+<div *ngFor="let article of articles; index as id">
+
+    <ng-template  ngFor let-item [ngForOf]="article.tags" let-i="index">
+        <div class="container" *ngIf="item == this.tag">
+            <h3>{{article.name}}</h3>
+
+            <div class="description">
+                <div class="desText"><span>{{this.getDescripton(id)}}</span></div>
+                <img class="desPhoto" src="{{this.getFirstPhoto(id)}}"/>
+            </div>
+
+            <div class="ArticleInfo">
+
+                <div class="Date">
+                    {{ article.date | date }}
+                </div>
+                <div class="author">
+                    автор : {{article.author}}
+                </div>
+
+                <div class="Tags">
+                    <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
+                        <a routerLink="/tag/{{item}}" routerLinkActive='active' *ngIf="i == 0" class="tag">tags: #{{item}}</a>
+                        <a routerLink="/tag/{{item}}" routerLinkActive='active' *ngIf="i != 0" class="tag">#{{item}}</a>
+                    </ng-template>
+                </div>
+                <div><a class="Read" routerLink="/page/{{article.id}}" routerLinkActive='active'> Читать </a></div>
+            </div>
+
+            
+        </div>
+    </ng-template>
+
+
+</div>
+  
+  

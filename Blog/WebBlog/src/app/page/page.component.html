@@ -2,19 +2,22 @@
   <div *ngIf="j == id-1">
     <h1>{{article.name}}</h1>
     <div class="ArticleInfo">
+      <div class="Date">
+        {{ article.date | date }}
+      </div>
       <div class="author">
         автор : {{article.author}}
       </div>
       <div class="Tags">
         <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
-          <div *ngIf="i == 0" class="tag">tags: #{{item}}</div>
-          <div *ngIf="i != 0" class="tag">#{{item}}</div>
+          <a routerLink="/tag/{{item}}" routerLinkActive='active' *ngIf="i == 0" class="tag">tags: #{{item}}</a>
+          <a routerLink="/tag/{{item}}" routerLinkActive='active' *ngIf="i != 0" class="tag">#{{item}}</a>
         </ng-template>
       </div>
     </div>
-    <div class="Tags">
-    {{ Data | date }}
-    </div>
+
+    
+
     <div class="articlepage">
       <div *ngFor="let item of article.blocks">
         <div  [ngSwitch]="item.type">
@@ -27,5 +30,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </ng-template>

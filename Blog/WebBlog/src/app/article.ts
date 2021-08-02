@@ -33,11 +33,13 @@ export class Block{
 export class Article{
     id: number;
     name: string;
+    date: Date;
     tags: string[];
     author: string;
     blocks: Block[];
+    
   
-    constructor(Id: number,article_name: string, article_tags: string[], author_name: string, inner_blocks: Block[]){
+    constructor(Id: number,article_name: string, date: Date, article_tags: string[], author_name: string, inner_blocks: Block[]){
   
       this.id = Id;
       if(article_name.trim() != ""){
@@ -60,6 +62,7 @@ export class Article{
       }
       else throw "Error! Exeption in Artical class constructor. You must include at least one media block";
       
+        this.date = date;
     }
   
   }

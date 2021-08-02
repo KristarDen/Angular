@@ -25,6 +25,35 @@ export class BlogComponent implements OnInit
     this.http.get('assets/articles.json').subscribe((data:any) => this.articles = data["articleList"]);
     console.log(this.articles);
   }
+
+  getDescripton(id: number){
+    let description: string ;
+    
+    for (let item of this.articles[id].blocks){
+
+      if(item.type == 0){
+        description = item.text.substr(0, 300);
+        description += "..."
+        return description;
+      }
+
+    }
+    return false;
+  }
+  getFirstPhoto(id: number){
+    let source: string ;
+    
+    for (let item of this.articles[id].blocks){
+
+      if(item.type == 1){
+        source = item.text;
+        return source;
+      }
+
+    }
+    return false;
+  }
+
 }
 
 /*

@@ -17,7 +17,6 @@ export class PageComponent implements OnInit  {
   articles: Article [] = [];
   article: Article ;
   title: string = "";
-  Data: Date = new Date(Date.now());
   id: number = -1;
 
   constructor(private activateRoute: ActivatedRoute, private router: Router,private http: HttpClient)
@@ -32,4 +31,5 @@ export class PageComponent implements OnInit  {
     
     console.log(this.articles);
   }
+  
 }

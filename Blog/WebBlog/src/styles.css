@@ -17,7 +17,7 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: rgba(221, 221, 221, 0.44);
     color: black;
 }
 
@@ -30,4 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+body{
+    background-image: url(assets/back.jpg);;
 }

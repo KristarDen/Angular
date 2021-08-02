@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './blog.component';
 import { PageComponent } from './page/page.component';
 import { SearchbyidComponent } from './searchbyid/searchbyid.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -16,7 +17,8 @@ import { SearchbyidComponent } from './searchbyid/searchbyid.component';
     AppComponent,
     PageComponent,
     BlogComponent,
-    SearchbyidComponent
+    SearchbyidComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

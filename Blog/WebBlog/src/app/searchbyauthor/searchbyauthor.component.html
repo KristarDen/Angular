@@ -1,8 +1,7 @@
-<h1>Поиск по тегу: {{this.tag}}</h1>
+<h1>Поиск по автору : {{this.author}}</h1>
 <div *ngFor="let article of articles; index as id">
 
-    <ng-template  ngFor let-item [ngForOf]="article.tags" let-i="index">
-        <div class="container" *ngIf="item == this.tag">
+        <div class="container" *ngIf="article.author == this.author">
             <h3>{{article.name}}</h3>
 
             <div class="description">
@@ -15,9 +14,7 @@
                 <div class="Date">
                     {{ article.date | date }}
                 </div>
-                
                 <a routerLink="/author/{{article.author}}" routerLinkActive='active' class="author" >автор : {{article.author}}</a>
-                
 
                 <div class="Tags">
                     <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">
@@ -30,8 +27,5 @@
 
             
         </div>
-    </ng-template>
 
 </div>
-  
-  

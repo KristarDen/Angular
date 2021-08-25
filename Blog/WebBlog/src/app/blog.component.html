@@ -9,9 +9,7 @@
       <div class="Date">
         {{ article.date | date }}
       </div>
-      <div class="author">
-        автор : {{article.author}}
-      </div>
+      <a routerLink="/author/{{article.author}}" routerLinkActive='active' class="author" >автор : {{article.author}}</a>
       
       <div class="Tags">
         <ng-template class="tag" ngFor let-item [ngForOf]="article.tags" let-i="index">

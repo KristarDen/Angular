@@ -9,6 +9,7 @@ import { PageComponent } from './page/page.component';
 import { SearchbyidComponent } from './searchbyid/searchbyid.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { SearchbyauthorComponent } from './searchbyauthor/searchbyauthor.component';
 
 
 
@@ -20,7 +21,8 @@ import { ContactComponent } from './contact/contact.component';
     BlogComponent,
     SearchbyidComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    SearchbyauthorComponent
   ],
   imports: [
     BrowserModule,

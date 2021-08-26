@@ -146,6 +146,8 @@ video{
     background-color: greenyellow;
     padding: 5px;
     border-radius: 5px;
+    color: black;
+    text-decoration: none;
     width: 50px;
 }
 .Date{
